@@ -7,9 +7,18 @@ import { calculateTimeDifference } from '../utils/calculateTimeDifference'
 
 export async function developersRoutes (app: FastifyInstance): Promise<void> {
   app.get('/', async (request, reply) => {
-    const developers = await knex('developers').select()
+    try {
+      const developers = await knex('developers').select()
+      const emptyDevelopers = developers.length === 0
 
-    return await reply.status(200).send({ developers })
+      if (emptyDevelopers) {
+        return await reply.status(404).send({ error: 'Not Found Developers.' })
+      }
+
+      return await reply.status(200).send({ developers })
+    } catch (error) {
+      return await reply.status(400).send({ error })
+    }
   })
 
   app.post('/', async (request, reply) => {
@@ -38,7 +47,7 @@ export async function developersRoutes (app: FastifyInstance): Promise<void> {
 
       return await reply.status(201).send()
     } catch (error) {
-      return await reply.status(400).send(error)
+      return await reply.status(400).send({ error })
     }
   })
 
@@ -72,7 +81,7 @@ export async function developersRoutes (app: FastifyInstance): Promise<void> {
 
       return await reply.status(200).send()
     } catch (error) {
-      return await reply.status(400).send(error)
+      return await reply.status(400).send({ error })
     }
   })
 
@@ -87,7 +96,7 @@ export async function developersRoutes (app: FastifyInstance): Promise<void> {
 
       return await reply.status(204).send()
     } catch (error) {
-      return await reply.status(400).send(error)
+      return await reply.status(400).send({ error })
     }
   })
 }
