@@ -18,6 +18,14 @@
     npm run dev
 ```
 
+## Testes
+
+- Comando para execultar os testes.
+
+```bash
+    npm run test
+```
+
 # RF (Requisitos Funcionais)
 
 #### Níveis
