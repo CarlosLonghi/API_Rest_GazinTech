@@ -126,7 +126,7 @@ describe('Levels routes CRUD', () => {
 
     it('should not be able to delete level if developers are associated with it', async () => {
       const levelUUID = '15b691f3-c573-463c-befa-7c987079ad3c'
-      const developerUUID = '"e8d708b8-df8c-414c-ae37-818bbdc4cd74"'
+      const developerUUID = 'e8d708b8-df8c-414c-ae37-818bbdc4cd74'
 
       await request(app.server)
         .post('/niveis')
@@ -145,9 +145,7 @@ describe('Levels routes CRUD', () => {
           sex: 'M',
           birthDate: '2000-01-01T03:00:00.000Z',
           age: 20,
-          hobby: 'test',
-          created_at: new Date(),
-          updated_at: new Date()
+          hobby: 'test'
         })
         .expect(201)
 
