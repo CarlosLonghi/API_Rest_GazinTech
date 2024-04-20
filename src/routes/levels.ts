@@ -25,7 +25,7 @@ export async function levelsRoutes (app: FastifyInstance): Promise<void> {
 
       return await reply.status(201).send()
     } catch (error) {
-      return await reply.status(400).send({ error: 'Incorrect request body.' })
+      return await reply.status(400).send(error)
     }
   })
 
@@ -48,18 +48,29 @@ export async function levelsRoutes (app: FastifyInstance): Promise<void> {
 
       return await reply.status(200).send()
     } catch (error) {
-      return await reply.status(400).send({ error: 'Incorrect request body.' })
+      return await reply.status(400).send(error)
     }
   })
 
   app.delete('/:id', async (request, reply) => {
-    const getLevelByIdParamsSchema = z.object({
-      id: z.string().uuid()
-    })
-    const { id } = getLevelByIdParamsSchema.parse(request.params)
+    try {
+      const getLevelByIdParamsSchema = z.object({
+        id: z.string().uuid()
+      })
+      const { id } = getLevelByIdParamsSchema.parse(request.params)
 
-    await knex('levels').where({ id }).delete()
+      const levelLinkedToDevelopers = await knex('developers').where({ level_id: id })
+      const isLinked = levelLinkedToDevelopers.length > 0
 
-    return await reply.status(204).send()
+      if (isLinked) {
+        return await reply.status(400).send({ error: 'Cannot delete level with linked developers.' })
+      }
+
+      await knex('levels').where({ id }).delete()
+
+      return await reply.status(200).send()
+    } catch (error) {
+      return await reply.status(400).send({ error })
+    }
   })
 }

@@ -29,11 +29,11 @@
 
 #### Desenvolvedores
 
-- [ ] Deve ser possível cadastrar um desenvolvedor;
-- [ ] Deve ser possível listar os desenvolvedores;
-- [ ] Deve ser possível editar um desenvolvedor;
-- [ ] Deve ser possível deletar um desenvolvedor;
+- [x] Deve ser possível cadastrar um desenvolvedor;
+- [x] Deve ser possível listar os desenvolvedores;
+- [x] Deve ser possível editar um desenvolvedor;
+- [x] Deve ser possível deletar um desenvolvedor;
 
 # RN (Regra de Negócio)
 
-- [ ] Não deve ser possível deletar um nível se houverem desenvolvedores vinculados à ele;
+- [x] Não deve ser possível deletar um nível se houverem desenvolvedores vinculados à ele;

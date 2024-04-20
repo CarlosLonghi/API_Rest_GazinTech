@@ -13,7 +13,7 @@ declare module 'knex/types/tables' {
       level_id: string
       name: string
       sex: char
-      birth_date: string
+      birth_date: date
       age: integer
       hobby: string
     }
