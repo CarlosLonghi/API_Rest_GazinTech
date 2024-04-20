@@ -22,10 +22,10 @@
 
 #### Níveis
 
-- [ ] Deve ser possível cadastrar um nível;
-- [ ] Deve ser possível listar os níveis;
-- [ ] Deve ser possível editar o nível;
-- [ ] Deve ser possível deletar o nível;
+- [x] Deve ser possível cadastrar um nível;
+- [x] Deve ser possível listar os níveis;
+- [x] Deve ser possível editar o nível;
+- [x] Deve ser possível deletar o nível;
 
 #### Desenvolvedores
 

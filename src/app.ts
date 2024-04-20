@@ -1,8 +1,8 @@
 import fastify from 'fastify'
-import { helloRoute } from './routes/hello'
+import { levelsRoutes } from './routes/levels'
 
 export const app = fastify()
 
-void app.register(helloRoute, {
-  prefix: '/hello'
+void app.register(levelsRoutes, {
+  prefix: '/niveis'
 })
