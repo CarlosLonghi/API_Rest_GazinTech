@@ -1,4 +1,8 @@
-## Start
+## Variáveis de ambiente
+
+- Altere o nome de arquivo `.env.example` para `.env`, e `.env.test.example` para `.env.test`.
+
+## Rodando o Projeto
 
 - Instalação da API RESTful
 
@@ -18,7 +22,7 @@
     npm run dev
 ```
 
-## Testes
+## Execultando Testes
 
 - Comando para execultar os testes.
 
